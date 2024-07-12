@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.27)
 
 project(aurora_sort_fail_example CXX)
 
-find_package(Kokkos REQUIRED)
+add_subdirectory(kokkos)
 
 add_executable(sort-fail sort-fail.cxx)
 

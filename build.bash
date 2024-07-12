@@ -10,7 +10,6 @@ module use /soft/modulefiles/
 module load cmake
 module load git-lfs
 module load ninja
-module load kokkos
 
 # from Renzo on slack 02/01/2024
 export IGC_FunctionCloningThreshold=1
@@ -32,6 +31,14 @@ mkdir -p $bindir
 cmake -G Ninja -S $srcdir -B $bindir \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_CXX_FLAGS="-fPIC -fp-model=precise -Wno-unused-command-line-argument -Wno-deprecated-declarations -fsycl-device-code-split=per_kernel -fsycl-max-parallel-link-jobs=128" \
-  -DCMAKE_CXX_FLAGS_DEBUG="-g -O0 -fsycl-link-huge-device-code"
+  -DCMAKE_CXX_FLAGS_DEBUG="-g -O0 -fsycl-link-huge-device-code" \
+  -DCMAKE_CXX_STANDARD=17 \
+  -DCMAKE_CXX_EXTENSIONS=OFF \
+  -DBUILD_SHARED_LIBS=ON \
+  -DKokkos_ENABLE_EXAMPLES=OFF \
+  -DKokkos_ENABLE_TESTS=OFF \
+  -DKokkos_ENABLE_SERIAL=ON \
+  -DKokkos_ENABLE_SYCL=ON \
+  -DKokkos_ARCH_INTEL_PVC=ON
 
 cmake --build $bindir
