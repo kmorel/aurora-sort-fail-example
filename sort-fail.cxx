@@ -68,10 +68,12 @@ int main(int argc, char** argv)
 
   if (success)
   {
+    std::cout << "Sort succeeded.\n";
     return 0;
   }
   else
   {
+    std::cout << "!!!!! Sort Failed!!!!!\n";
     return 1;
   }
 }
