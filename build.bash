@@ -12,12 +12,12 @@ module load git-lfs
 module load ninja
 
 # from Renzo on slack 02/01/2024
-export IGC_FunctionCloningThreshold=1
-export IGC_ControlInlineTinySize=100
-export IGC_OCLInlineThreshold=200
-export IGC_PartitionUnit=1
+#export IGC_FunctionCloningThreshold=1
+#export IGC_ControlInlineTinySize=100
+#export IGC_OCLInlineThreshold=200
+#export IGC_PartitionUnit=1
 export IGC_ForceOCLSIMDWidth=16
-export ZE_AFFINITY_MASK=0.0
+#export ZE_AFFINITY_MASK=0.0
 
 export CC=`which icx`
 export CXX=`which icpx`
