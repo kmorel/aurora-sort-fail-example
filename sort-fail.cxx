@@ -2,7 +2,9 @@
 #include <Kokkos_DualView.hpp>
 #include <Kokkos_Sort.hpp>
 
-int SortFail(int argc, char** argv)
+#include <iostream>
+
+int main(int argc, char** argv)
 {
   std::cout << "Calling initialize" << std::endl;
   Kokkos::initialize(argc, argv);
@@ -61,6 +63,8 @@ int SortFail(int argc, char** argv)
     }
   }
   std::cout << std::endl;
+
+  Kokkos::finalize();
 
   if (success)
   {
